@@ -1,0 +1,15 @@
+
+
+<div class="file-page-container"> 
+  <mat-card>
+    <mat-card-content> 
+      <h2>Subir archivo csv</h2>
+      <input type="file" name="csvFile" id="csvFile" (change)="fsUploaded($event)">
+    </mat-card-content>
+  </mat-card>
+
+  <!-- <div *ngIf ="tableData"> -->
+    <!-- <h1>{{headers}}</h1> -->
+
+  <app-table [tableData]="tableData" [headers]="headers"></app-table>
+</div>
