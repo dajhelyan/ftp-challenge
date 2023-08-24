@@ -1,5 +1,6 @@
 export interface JsonData {  
 	// [key: string]: string;
+	// id?: String;
 	fecha?: String;  
 	descripcion?: String;  
 	moneda?: String;  

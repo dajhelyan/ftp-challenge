@@ -9,15 +9,19 @@ import { TableComponent } from './components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card'
-
-
+import { MatCardModule } from '@angular/material/card';
+import { DialogComponent } from './dialog/dialog.component'
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileComponent,
     TableComponent,
+    DialogComponent,
     // EditPopupComponent
   ],
   imports: [
@@ -26,7 +30,11 @@ import { MatCardModule } from '@angular/material/card'
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

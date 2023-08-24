@@ -1,50 +1,56 @@
-<div *ngIf="tableData">
+<!-- <div *ngIf="tableData"> -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
 
-  <table mat-table [dataSource]="tableData" class="mat-elevation-z6">
+  <ng-container *ngFor="let obj ; let i= index of dataSource">
+    <th mat-header-cell *matHeaderCellDef="let item of obj | keyvalue" >{{item.key}}</th>
+    <!-- <td mat-cell *matCellDef="let tableData">{{ item }}</td> -->
+  </ng-container>
 
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td  mat-cell *matCellDef > </td>
-    </ng-container>
+  <!-- <ng-container matColumnDef="codigo_unico">
+    <th mat-header-cell *matHeaderCellDef>Codigo unico</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.codigo_unico }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="fecha">
-      <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let tableData"> {{tableData.fecha}} </td>
-    </ng-container>
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.fecha }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="descripcion">
-      <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-      <td mat-cell *matCellDef="let tableData"> {{tableData.descripcion}} </td>
-    </ng-container>
+  <ng-container matColumnDef="descripcion">
+    <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.descripcion }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="moneda">
-      <th mat-header-cell *matHeaderCellDef> Moneda </th>
-      <td mat-cell *matCellDef="let tableData"> {{tableData.moneda}} </td>
-    </ng-container>
+  <ng-container matColumnDef="moneda">
+    <th mat-header-cell *matHeaderCellDef>Moneda</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.moneda }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="monto">
-      <th mat-header-cell *matHeaderCellDef> Monto </th>
-      <td mat-cell *matCellDef="let tableData"> {{tableData.monto}} </td>
-    </ng-container>
+  <ng-container matColumnDef="monto">
+    <th mat-header-cell *matHeaderCellDef>Monto</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.monto }}</td>
+  </ng-container> -->
 
-    <ng-container matColumnDef="codigo_unico">
-      <th mat-header-cell *matHeaderCellDef> Codigo unico </th>
-      <td mat-cell *matCellDef="let tableData"> {{tableData.codigo_unico}} </td>
-    </ng-container>
+  <!-- <ng-container matColumnDef="codigo_unico">
+    <th mat-header-cell *matHeaderCellDef>Codigo unico</th>
+    <td mat-cell *matCellDef="let tableData">{{ tableData.codigo_unico }}</td>
+  </ng-container> -->
 
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef></th>
-      <td mat-cell *matCellDef>
-        <button mat-icon-button>
-          <mat-icon color="primary">edit</mat-icon>
-        </button>
-        <button mat-icon-button>
-          <mat-icon color="warn">delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef>
+      <!-- open the dialog -->
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-</div>
+      <button mat-icon-button (click)="openDialog('0ms', '0ms', dataSource)">
+        <mat-icon color="primary">edit</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon color="warn">delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<!-- </div> -->
